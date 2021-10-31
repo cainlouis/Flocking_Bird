@@ -70,5 +70,16 @@ namespace FlockingBackend{
        }
 
        public abstract Vector2 CalculateBehaviour(List<Sparrow> Sparrows);
+
+       ///<summary>
+        ///This method is a public helper method to takes care of the behavior of the birds
+        ///</summary>
+       public void move(){
+           //Update velocity by adding amount to steer to it
+           Velocity = Velocity+amountToSteer;
+           //Updating the position of the bird
+           Position = Position+Velocity;
+           this.AppearOnOppositeSide();
+       }
     }
 }
