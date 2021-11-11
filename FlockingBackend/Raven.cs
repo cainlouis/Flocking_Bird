@@ -9,8 +9,9 @@ namespace FlockingBackend
     ///</summary>
     public class Raven : Bird
     {
-        //TODO: Add the constructor, properties and fields as specified in the instructions document.
-
+        public Raven() : base() 
+        {
+        }
         ///<summary>
         ///This method is an event handler that updates the velocity and position of a raven.
         ///</summary>
@@ -21,6 +22,7 @@ namespace FlockingBackend
             this.Velocity /= World.MaxSpeed;
             this.Position += this.Velocity;
         }
+
         ///<summary>
         ///This method is an event handler to calculate and set amountToSteer vector
         ///</summary>
