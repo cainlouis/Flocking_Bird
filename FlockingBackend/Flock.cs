@@ -27,7 +27,7 @@ namespace FlockingBackend
             //invoking the events
             CalcMovementEvent?.Invoke(sparrows);
             MoveEvent?.Invoke();
-            CalcRavenFleeEvent?.Invoke(raven) ;
+            CalcRavenFleeEvent?.Invoke(raven);
         }
     }
 }

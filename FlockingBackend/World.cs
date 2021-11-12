@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 
 namespace FlockingBackend{
-    public abstract class World{
+    public class World{
         private Flock flock;
         public List<Sparrow> sparrows{
             get;
@@ -24,7 +24,6 @@ namespace FlockingBackend{
             MaxSpeed = 4; //Max speed of the birds
             NeighbourRadius = 100; //Radius used to determine if a bird is a neighbour
             AvoidanceRadius = 50; //Radius used to determine if a bird is too close
-
         }
 
         ///<summary>
