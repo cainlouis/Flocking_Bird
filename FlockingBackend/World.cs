@@ -40,11 +40,11 @@ namespace FlockingBackend{
                 Sparrow sparrow = new Sparrow();
                 sparrows.Add(sparrow);
                 //subscribe the flock
-                flock.Subscribe(sparrow.CalculateBehaviour,sparrow.CalculateRavenAvoidance,sparrow.move);
+                flock.Subscribe(sparrow.CalculateBehaviour,sparrow.move,sparrow.CalculateRavenAvoidance);
             } 
             //create a raven and subscribe it to the flock
             raven = new Raven();
-            flock.Subscribe(raven.CalculateBehaviour,raven.move);
+            flock.Subscribe(raven.CalculateBehaviour,raven.move);   
         }
         ///<summary>
         ///This method raises the moe events that move the raven and the sparrow
