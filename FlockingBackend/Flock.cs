@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace FlockingBackend
 {
-    class Flock
+    public class Flock
     {
         //Creating all the delegate type events
         public event Delegates.CalculateMoveVector CalcMovementEvent;

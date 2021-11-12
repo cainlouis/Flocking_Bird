@@ -43,7 +43,7 @@ namespace FlockingBackend{
             } 
             //create a raven and subscribe it to the flock
             raven = new Raven();
-            flock.Subscribe(raven.CalculateBehaviour,raven.move);   
+            flock.Subscribe(raven.CalculateBehaviour,raven.move);  
         }
         ///<summary>
         ///This method raises the moe events that move the raven and the sparrow
