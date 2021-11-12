@@ -56,7 +56,7 @@ namespace FlockingBackend
         ///<summary>
         ///This method is a private helper method to make sparrows reappear on the opposite edge if they go outside the bounds of the screen
         ///</summary>
-        private void AppearOnOppositeSide()
+        protected void AppearOnOppositeSide()
         {
             if (this.Position.Vx > World.Width)
             {
@@ -78,15 +78,16 @@ namespace FlockingBackend
 
         public abstract void CalculateBehaviour(List<Sparrow> Sparrows);
 
-       ///<summary>
+        ///<summary>
         ///This method is a public helper method to takes care of the behavior of the birds
         ///</summary>
-       public void move(){
-           //Update velocity by adding amount to steer to it
-           Velocity = Velocity+amountToSteer;
-           //Updating the position of the bird
-           Position = Position+Velocity;
-           this.AppearOnOppositeSide();
-       }
+        public virtual void Move()
+        {
+            //Update velocity by adding amount to steer to it
+            Velocity = Velocity + amountToSteer;
+            //Updating the position of the bird
+            Position = Position + Velocity;
+            this.AppearOnOppositeSide();
+        }
     }
 }

@@ -15,9 +15,9 @@ namespace FlockingUnitTests
             List<Sparrow> sparrows = new List<Sparrow>();
 
             Sparrow s1 = new Sparrow( 6, 6, -3,4 );
-            flock.Subscribe(s1.CalculateBehaviour,s1.move,s1.CalculateRavenAvoidance);
+            flock.Subscribe(s1.CalculateBehaviour,s1.Move,s1.CalculateRavenAvoidance);
             Sparrow s2 = new Sparrow( 2, 4, -2,1 );
-            flock.Subscribe(s2.CalculateBehaviour,s2.move,s2.CalculateRavenAvoidance);
+            flock.Subscribe(s2.CalculateBehaviour,s2.Move,s2.CalculateRavenAvoidance);
 
             sparrows.Add(s1);
             sparrows.Add(s2);
