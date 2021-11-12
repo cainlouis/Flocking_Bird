@@ -29,7 +29,6 @@ namespace FlockingBackend
             MaxSpeed = 4; //Max speed of the birds
             NeighbourRadius = 100; //Radius used to determine if a bird is a neighbour
             AvoidanceRadius = 50; //Radius used to determine if a bird is too close
-
         }
 
         ///<summary>
