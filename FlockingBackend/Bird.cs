@@ -68,7 +68,7 @@ namespace FlockingBackend
             }
             if (this.Position.Vy > World.Height)
             {
-                this.Position = new Vector2(this.Position.Vy, 0);
+                this.Position = new Vector2(this.Position.Vx, 0);
             }
             else if (this.Position.Vy < 0)
             {

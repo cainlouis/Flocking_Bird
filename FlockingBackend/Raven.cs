@@ -24,7 +24,7 @@ namespace FlockingBackend
         {
             //TODO: 
             this.Velocity += base.amountToSteer;
-            this.Velocity /= World.MaxSpeed;
+            this.Velocity = Vector2.Normalize(this.Velocity) * World.MaxSpeed;
             this.Position += this.Velocity;
             this.AppearOnOppositeSide();
         }
@@ -35,20 +35,20 @@ namespace FlockingBackend
         ///<param name="sparrows">List of sparrows</param>
         public override void CalculateBehaviour(List<Sparrow> sparrows)
         {
-            base.amountToSteer += ChaseSparrow(sparrows);
+            base.amountToSteer = ChaseSparrow(sparrows);
         }
 
         //TODO: Code the following private helper methods to implement chase sparrows.
         //The method header are declared below:
         public Vector2 ChaseSparrow(List<Sparrow> sparrows)
         {
-            float smallestDistance = World.AvoidanceRadius;
+            float smallestDistance = float.MaxValue;
             float distance;
             Sparrow closestSparrow = null;
             foreach (Sparrow sparrow in sparrows)
             {
                 distance = Vector2.DistanceSquared(sparrow.Position, this.Position);
-                if (distance < smallestDistance)
+                if (distance < Math.Pow(World.AvoidanceRadius, 2) && distance < smallestDistance)
                 {
                     smallestDistance = distance;
                     closestSparrow = sparrow;
