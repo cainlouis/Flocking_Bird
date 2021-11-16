@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace FlockingBackend
 {
-    public abstract class World
+    public class World
     {
         private Flock flock;
         public List<Sparrow> sparrows

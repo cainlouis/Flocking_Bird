@@ -24,9 +24,7 @@ namespace FlockingBackend
         ///<param name="sparrows">List of sparrows</param>
         public override void CalculateBehaviour(List<Sparrow> sparrows)
         {
-            Vector2 alignmentAndCohesion = Alignment(sparrows) + Cohesion(sparrows);
-            Vector2 sum = Avoidance(sparrows) + alignmentAndCohesion;
-            base.amountToSteer += sum;
+            base.amountToSteer = this.Alignment(sparrows) + this.Cohesion(sparrows) + this.Avoidance(sparrows);
         }
 
         ///<summary>
@@ -64,7 +62,6 @@ namespace FlockingBackend
                 foreach (Sparrow sparrow in neighbours)
                 {
                     displacement += sparrow.Position;
-                    Console.WriteLine("Displacement: " + sparrow.Position.Vx + " " + sparrow.Position.Vy);
                 }
                 displacement = GetVector2(displacement, neighbours.Count, "cohesion");
             }
@@ -80,7 +77,7 @@ namespace FlockingBackend
             foreach (Sparrow sparrow in sparrows)
             {
                 distance = Vector2.DistanceSquared(this.Position, sparrow.Position);
-                if (distance <= Math.Pow(radius, 2) && !this.Equals(sparrow))
+                if (distance < Math.Pow(radius, 2) && !this.Equals(sparrow))
                 {
                     difference = this.Position - sparrow.Position;
                     difference /= distance;
@@ -98,7 +95,7 @@ namespace FlockingBackend
         {
             Vector2 toSteer = new Vector2(0, 0);
             float distance = Vector2.DistanceSquared(this.Position, raven.Position);
-            if (distance <= Math.Pow(World.AvoidanceRadius, 2))
+            if (distance < Math.Pow(World.AvoidanceRadius, 2))
             {
                 toSteer = this.Position - raven.Position;
                 toSteer /= distance;
@@ -115,7 +112,7 @@ namespace FlockingBackend
             foreach (Sparrow sparrow in sparrows)
             {
                 distance = Vector2.DistanceSquared(this.Position, sparrow.Position);
-                if (distance <= Math.Pow(radius, 2) && !this.Equals(sparrow))
+                if (distance < Math.Pow(radius, 2) && !this.Equals(sparrow))
                 {
                     neighbours.Add(sparrow);
                 }
@@ -135,6 +132,5 @@ namespace FlockingBackend
             toModify = Vector2.Normalize(toModify);
             return toModify;
         }
-
     }
 }
