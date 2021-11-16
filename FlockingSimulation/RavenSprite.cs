@@ -13,11 +13,13 @@ namespace FlockingSimulation
         private Texture2D _texture;
         private SpriteBatch _spriteBatch;
 
+        //initialize _game
         public RavenSprite(Game1 game) : base(game)
         {
             _game = game;
         }
 
+        //OverLoad the constructor and initialize _game and _raven fields
         public RavenSprite(Game1 game, Raven raven) : base(game)
         {
             _game = game;
@@ -45,6 +47,7 @@ namespace FlockingSimulation
         public override void Draw(GameTime gameTime)
         {
             _spriteBatch.Begin();
+            //Draw _raven
             _spriteBatch.Draw(_texture, new Microsoft.Xna.Framework.Vector2(_raven.Position.Vx, _raven.Position.Vy), null, Color.White, _raven.Rotation, new Microsoft.Xna.Framework.Vector2(10, 10), 1, SpriteEffects.None, 0f);
             _spriteBatch.End();
 
