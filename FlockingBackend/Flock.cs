@@ -6,9 +6,9 @@ namespace FlockingBackend
     class Flock
     {
         //Creating all the delegate type events
-        public event Delegates.CalculateMoveVector CalcMovementEvent;
-        public event Delegates.CalculateRavenAvoidance CalcRavenFleeEvent;
-        public event Delegates.MoveBird MoveEvent;
+        private event Delegates.CalculateMoveVector CalcMovementEvent;
+        private event Delegates.CalculateRavenAvoidance CalcRavenFleeEvent;
+        private event Delegates.MoveBird MoveEvent;
 
         ///<summary>
         ///This method subscribes the methods to the events.
