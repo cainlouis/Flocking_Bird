@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FlockingBackend;
 using System.Collections.Generic;
+using System;
 
 namespace FlockingUnitTests
 {
@@ -35,10 +36,11 @@ namespace FlockingUnitTests
         {
             Raven raven = new Raven(30, 40, 1, 3);
             List<Sparrow> sparrows = new List<Sparrow>();
-            sparrows.Add(new Sparrow(25, 35, 4, 3));
+            sparrows.Add(new Sparrow(90, 120, 4, 3));
             sparrows.Add(new Sparrow(70, 140, 2, 4));
             sparrows.Add(new Sparrow(60, 160, 2, 5));
             Vector2 result = raven.ChaseSparrow(sparrows);
+            Console.WriteLine(result.Vx);
             Assert.AreEqual(0, result.Vx);
             Assert.AreEqual(0, result.Vy);
         }
