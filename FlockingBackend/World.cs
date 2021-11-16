@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace FlockingBackend
 {
-    public abstract class World
+    public class World
     {
         private Flock flock;
         public List<Sparrow> sparrows
@@ -50,6 +50,7 @@ namespace FlockingBackend
             }
             //create a raven and subscribe it to the flock
             raven = new Raven();
+
             flock.Subscribe(raven.CalculateBehaviour, raven.Move);
         }
         ///<summary>
