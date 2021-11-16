@@ -27,8 +27,8 @@ namespace FlockingBackend
         public Bird()
         {
             Random rnd = new Random();
-            int Px = rnd.Next(0, World.width);
-            int Py = rnd.Next(0, World.height);
+            int Px = rnd.Next(0, World.Width);
+            int Py = rnd.Next(0, World.Height);
             Position = new Vector2(Px, Py);
             int VelX = rnd.Next(0, 9) - 4;
             int VelY = rnd.Next(0, 9) - 4;
@@ -56,21 +56,21 @@ namespace FlockingBackend
          
         protected void AppearOnOppositeSide()
         {
-            if (this.Position.Vx > World.width)
+            if (this.Position.Vx > World.Width)
             {
                 this.Position = new Vector2(0, this.Position.Vy);
             }
             else if (this.Position.Vx < 0)
             {
-                this.Position = new Vector2(World.width, this.Position.Vy);
+                this.Position = new Vector2(World.Width, this.Position.Vy);
             }
-            if (this.Position.Vy > World.height)
+            if (this.Position.Vy > World.Height)
             {
                 this.Position = new Vector2(this.Position.Vx, 0);
             }
             else if (this.Position.Vy < 0)
             {
-                this.Position = new Vector2(this.Position.Vx, World.height);
+                this.Position = new Vector2(this.Position.Vx, World.Height);
             }
         }
 

@@ -14,21 +14,33 @@ namespace FlockingBackend
         {
             get;
         }
-        public static int initialCount; //number of sparrows
-        public static int width; //Width of the canvas (“world”)
-        public static int height; //Height of the canvas
-        public static int maxSpeed; //Max speed of the birds
-        public static int neighbourRadius; //Radius used to determine if a bird is a neighbour
-        public static int avoidanceRadius; //Radius used to determine if a bird is too close
+        public static int InitialCount{
+            get;
+        } //number of sparrows
+        public static int Width{
+            get;
+        } //Width of the canvas (“world”)
+        public static int Height{
+            get;
+        } //Height of the canvas
+        public static int MaxSpeed{
+            get;
+        } //Max speed of the birds
+        public static int NeighbourRadius{
+            get;
+        } //Radius used to determine if a bird is a neighbour
+        public static int AvoidanceRadius{
+            get;
+        } //Radius used to determine if a bird is too close
 
         static World()
         {
-            initialCount = 150; //number of sparrows
-            width = 1000; //Width of the canvas (“world”)
-            height = 500; //Height of the canvas
-            maxSpeed = 4; //Max speed of the birds
-            neighbourRadius = 100; //Radius used to determine if a bird is a neighbour
-            avoidanceRadius = 50; //Radius used to determine if a bird is too close
+            InitialCount = 150; //number of sparrows
+            Width = 1000; //Width of the canvas (“world”)
+            Height = 500; //Height of the canvas
+            MaxSpeed = 4; //Max speed of the birds
+            NeighbourRadius = 100; //Radius used to determine if a bird is a neighbour
+            AvoidanceRadius = 50; //Radius used to determine if a bird is too close
         }
 
         ///<summary>
@@ -41,7 +53,7 @@ namespace FlockingBackend
             //create sparrow list
             Sparrows = new List<Sparrow>();
             //create sparrows and add them to the list
-            for (int i = 0; i < initialCount; i++)
+            for (int i = 0; i < InitialCount; i++)
             {
                 Sparrow sparrow = new Sparrow();
                 Sparrows.Add(sparrow);

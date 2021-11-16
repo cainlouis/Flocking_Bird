@@ -27,8 +27,8 @@ namespace FlockingSimulation
         protected override void Initialize()
         {
             //Sets the height and width of the MonoGame canvas based on the static properties in World. 
-            _graphics.PreferredBackBufferHeight = World.height;
-            _graphics.PreferredBackBufferWidth = World.width;
+            _graphics.PreferredBackBufferHeight = World.Height;
+            _graphics.PreferredBackBufferWidth = World.Width;
             _graphics.ApplyChanges();
 
             //create the Raven and RavenSprite objects 

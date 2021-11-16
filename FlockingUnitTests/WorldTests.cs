@@ -18,12 +18,12 @@ namespace FlockingUnitTests
             //act
             w = new World();
             //assert
-            Assert.AreEqual(150,World.initialCount);
-            Assert.AreEqual(1000,World.width);
-            Assert.AreEqual(500,World.height);
-            Assert.AreEqual(4,World.maxSpeed);
-            Assert.AreEqual(100,World.neighbourRadius);
-            Assert.AreEqual(50,World.avoidanceRadius);
+            Assert.AreEqual(150,World.InitialCount);
+            Assert.AreEqual(1000,World.Width);
+            Assert.AreEqual(500,World.Height);
+            Assert.AreEqual(4,World.MaxSpeed);
+            Assert.AreEqual(100,World.NeighbourRadius);
+            Assert.AreEqual(50,World.AvoidanceRadius);
         }
 
         ///<summary>
