@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace FlockingBackend
 {
-    class Flock
+    public class Flock
     {
         //Creating all the delegate type events
         private event Delegates.CalculateMoveVector CalcMovementEvent;
@@ -24,6 +24,11 @@ namespace FlockingBackend
             MoveEvent += moveBird;
         }
 
+        ///<summary>
+        ///This method invokes the events
+        ///</summary>
+        ///<param name="sparrows">List of sparrows</param>
+        ///<param name="raven">A raven</param>
         public void RaiseMoveEvents(List<Sparrow> sparrows, Raven raven)
         {
             //invoking the events

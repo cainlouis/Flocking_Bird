@@ -5,30 +5,30 @@ namespace FlockingBackend
 {
     public class World
     {
-        private Flock flock;
-        public List<Sparrow> sparrows
+        private Flock Flock;
+        public List<Sparrow> Sparrows
         {
             get;
         }
-        public Raven raven
+        public Raven Raven
         {
             get;
         }
-        public static int InitialCount; //number of sparrows
-        public static int Width; //Width of the canvas (“world”)
-        public static int Height; //Height of the canvas
-        public static int MaxSpeed; //Max speed of the birds
-        public static int NeighbourRadius; //Radius used to determine if a bird is a neighbour
-        public static int AvoidanceRadius; //Radius used to determine if a bird is too close
+        public static int initialCount; //number of sparrows
+        public static int width; //Width of the canvas (“world”)
+        public static int height; //Height of the canvas
+        public static int maxSpeed; //Max speed of the birds
+        public static int neighbourRadius; //Radius used to determine if a bird is a neighbour
+        public static int avoidanceRadius; //Radius used to determine if a bird is too close
 
         static World()
         {
-            InitialCount = 150; //number of sparrows
-            Width = 1000; //Width of the canvas (“world”)
-            Height = 500; //Height of the canvas
-            MaxSpeed = 4; //Max speed of the birds
-            NeighbourRadius = 100; //Radius used to determine if a bird is a neighbour
-            AvoidanceRadius = 50; //Radius used to determine if a bird is too close
+            initialCount = 150; //number of sparrows
+            width = 1000; //Width of the canvas (“world”)
+            height = 500; //Height of the canvas
+            maxSpeed = 4; //Max speed of the birds
+            neighbourRadius = 100; //Radius used to determine if a bird is a neighbour
+            avoidanceRadius = 50; //Radius used to determine if a bird is too close
         }
 
         ///<summary>
@@ -37,27 +37,28 @@ namespace FlockingBackend
         ///</summary>
         public World()
         {
-            flock = new Flock();
+            Flock = new Flock();
             //create sparrow list
-            sparrows = new List<Sparrow>();
+            Sparrows = new List<Sparrow>();
             //create sparrows and add them to the list
-            for (int i = 0; i < InitialCount; i++)
+            for (int i = 0; i < initialCount; i++)
             {
                 Sparrow sparrow = new Sparrow();
-                sparrows.Add(sparrow);
+                Sparrows.Add(sparrow);
                 //subscribe the flock
-                flock.Subscribe(sparrow.CalculateBehaviour, sparrow.Move, sparrow.CalculateRavenAvoidance);
+                Flock.Subscribe(sparrow.CalculateBehaviour, sparrow.Move, sparrow.CalculateRavenAvoidance);
             }
             //create a raven and subscribe it to the flock
-            raven = new Raven();
-            flock.Subscribe(raven.CalculateBehaviour, raven.Move);
+            Raven = new Raven();
+
+            Flock.Subscribe(Raven.CalculateBehaviour, Raven.Move);
         }
         ///<summary>
         ///This method raises the moe events that move the raven and the sparrow
         ///</summary>
         public void Update()
         {
-            flock.RaiseMoveEvents(this.sparrows, this.raven);
+            Flock.RaiseMoveEvents(this.Sparrows, this.Raven);
         }
 
     }

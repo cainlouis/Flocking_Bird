@@ -100,7 +100,7 @@ namespace FlockingBackend
         public Vector2 Avoidance(List<Sparrow> sparrows)
         {
             float distance;
-            int radius = World.AvoidanceRadius;
+            int radius = World.avoidanceRadius;
             Vector2 difference;
             Vector2 result = new Vector2(0, 0);
             int count = 0;
@@ -162,7 +162,7 @@ namespace FlockingBackend
         public List<Sparrow> GetNeighbours(List<Sparrow> sparrows)
         {
             List<Sparrow> neighbours = new List<Sparrow>();
-            int radius = World.NeighbourRadius;
+            int radius = World.neighbourRadius;
             float distance;
             foreach (Sparrow sparrow in sparrows)
             {
