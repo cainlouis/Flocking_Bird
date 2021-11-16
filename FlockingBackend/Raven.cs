@@ -34,7 +34,7 @@ namespace FlockingBackend
             //Add the amount to steer to this velocity
             this.Velocity += base.amountToSteer;
             //Normalize result vector and multiply by MaxSpeed
-            this.Velocity = Vector2.Normalize(this.Velocity) * World.MaxSpeed;
+            this.Velocity = Vector2.Normalize(this.Velocity) * World.maxSpeed;
             //Add velocity to this Position
             this.Position += this.Velocity;
             //Call AppearOnOppositeSide so raven does not disappear
@@ -65,7 +65,7 @@ namespace FlockingBackend
                 //Calculate the distance between sparrow and the raven
                 distance = Vector2.DistanceSquared(sparrow.Position, this.Position);
                 //If the distance is less than avoidanceRadius and is smaller than the previous closest sparrow
-                if (distance < Math.Pow(World.AvoidanceRadius, 2) && distance < smallestDistance)
+                if (distance < Math.Pow(World.avoidanceRadius, 2) && distance < smallestDistance)
                 {
                     //SmallestDistance equal the distance between sparrow and raven
                     smallestDistance = distance;
