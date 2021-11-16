@@ -142,14 +142,14 @@ namespace FlockingBackend
             //Calculate the squared distance between this Sparrow’s position and the raven
             float distance = Vector2.DistanceSquared(this.Position, raven.Position);
             //If the calculated squared distance is less than the squared avoidance radius, 
-            if (distance < Math.Pow(World.AvoidanceRadius, 2))
+            if (distance < Math.Pow(World.avoidanceRadius, 2))
             {
                 //Calculate the difference between the two positions 
                 toSteer = this.Position - raven.Position;
                 //Then divide the difference by the distance
                 toSteer /= distance;
                 //Normalize the difference you just calculated and multiply by Max speed
-                toSteer = Vector2.Normalize(toSteer) * World.MaxSpeed;
+                toSteer = Vector2.Normalize(toSteer) * World.maxSpeed;
             }
             return toSteer;
         }
@@ -196,7 +196,7 @@ namespace FlockingBackend
                 toModify -= this.Position;
             }
             //Normalize and multiply by MaxSpeed
-            toModify = Vector2.Normalize(toModify) * World.MaxSpeed;
+            toModify = Vector2.Normalize(toModify) * World.maxSpeed;
             //Substract this velocity from vector
             toModify -= this.Velocity;
             //Normalize again

@@ -35,7 +35,7 @@ namespace FlockingSimulation
             _ravenSprite = new RavenSprite(this, _world.Raven);
 
             //Create the Sparrows list and the SparrowFlockSprite object
-            _sparrowFlockSprite = new SparrowFlockSprite(this, _world.sparrows);
+            _sparrowFlockSprite = new SparrowFlockSprite(this, _world.Sparrows);
 
             //Add the Sprites to the Components
             Components.Add(_ravenSprite);
