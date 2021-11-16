@@ -19,6 +19,8 @@ namespace FlockingSimulation
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+
+            //Initialize the _world field for non-static call to methods
             _world = new World();
         }
 
@@ -33,7 +35,8 @@ namespace FlockingSimulation
             _ravenSprite = new RavenSprite(this, _world.Raven);
 
             //Create the Sparrows list and the SparrowFlockSprite object
-            _sparrowFlockSprite = new SparrowFlockSprite(this, _world.Sparrows);
+            _sparrowFlockSprite = new SparrowFlockSprite(this, _world.sparrows);
+
             //Add the Sprites to the Components
             Components.Add(_ravenSprite);
             Components.Add(_sparrowFlockSprite);
