@@ -24,7 +24,7 @@ namespace FlockingBackend
         {
             //TODO: 
             this.Velocity += base.amountToSteer;
-            this.Velocity = Vector2.Normalize(this.Velocity) * World.MaxSpeed;
+            this.Velocity = Vector2.Normalize(this.Velocity) * World.maxSpeed;
             this.Position += this.Velocity;
             this.AppearOnOppositeSide();
         }
@@ -48,7 +48,7 @@ namespace FlockingBackend
             foreach (Sparrow sparrow in sparrows)
             {
                 distance = Vector2.DistanceSquared(sparrow.Position, this.Position);
-                if (distance < Math.Pow(World.AvoidanceRadius, 2) && distance < smallestDistance)
+                if (distance < Math.Pow(World.avoidanceRadius, 2) && distance < smallestDistance)
                 {
                     smallestDistance = distance;
                     closestSparrow = sparrow;

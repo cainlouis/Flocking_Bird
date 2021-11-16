@@ -70,7 +70,7 @@ namespace FlockingBackend
         public Vector2 Avoidance(List<Sparrow> sparrows)
         {
             float distance;
-            int radius = World.AvoidanceRadius;
+            int radius = World.avoidanceRadius;
             Vector2 difference;
             Vector2 result = new Vector2(0, 0);
             int count = 0;
@@ -95,11 +95,11 @@ namespace FlockingBackend
         {
             Vector2 toSteer = new Vector2(0, 0);
             float distance = Vector2.DistanceSquared(this.Position, raven.Position);
-            if (distance < Math.Pow(World.AvoidanceRadius, 2))
+            if (distance < Math.Pow(World.avoidanceRadius, 2))
             {
                 toSteer = this.Position - raven.Position;
                 toSteer /= distance;
-                toSteer = Vector2.Normalize(toSteer) * World.MaxSpeed;
+                toSteer = Vector2.Normalize(toSteer) * World.maxSpeed;
             }
             return toSteer;
         }
@@ -107,7 +107,7 @@ namespace FlockingBackend
         public List<Sparrow> GetNeighbours(List<Sparrow> sparrows)
         {
             List<Sparrow> neighbours = new List<Sparrow>();
-            int radius = World.NeighbourRadius;
+            int radius = World.neighbourRadius;
             float distance;
             foreach (Sparrow sparrow in sparrows)
             {
@@ -127,7 +127,7 @@ namespace FlockingBackend
             {
                 toModify -= this.Position;
             }
-            toModify = Vector2.Normalize(toModify) * World.MaxSpeed;
+            toModify = Vector2.Normalize(toModify) * World.maxSpeed;
             toModify -= this.Velocity;
             toModify = Vector2.Normalize(toModify);
             return toModify;

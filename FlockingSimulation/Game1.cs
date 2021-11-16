@@ -25,15 +25,15 @@ namespace FlockingSimulation
         protected override void Initialize()
         {
             //Sets the height and width of the MonoGame canvas based on the static properties in World. 
-            _graphics.PreferredBackBufferHeight = World.Height;
-            _graphics.PreferredBackBufferWidth = World.Width;
+            _graphics.PreferredBackBufferHeight = World.height;
+            _graphics.PreferredBackBufferWidth = World.width;
             _graphics.ApplyChanges();
 
             //create the Raven and RavenSprite objects 
-            _ravenSprite = new RavenSprite(this, _world.raven);
+            _ravenSprite = new RavenSprite(this, _world.Raven);
 
             //Create the Sparrows list and the SparrowFlockSprite object
-            _sparrowFlockSprite = new SparrowFlockSprite(this, _world.sparrows);
+            _sparrowFlockSprite = new SparrowFlockSprite(this, _world.Sparrows);
             //Add the Sprites to the Components
             Components.Add(_ravenSprite);
             Components.Add(_sparrowFlockSprite);
