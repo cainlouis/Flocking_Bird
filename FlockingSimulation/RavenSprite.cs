@@ -12,6 +12,7 @@ namespace FlockingSimulation
         private Raven _raven;
         private Texture2D _texture;
         private SpriteBatch _spriteBatch;
+        private const int _originRotation = 10;
 
         //initialize _game
         public RavenSprite(Game1 game) : base(game)
@@ -48,7 +49,7 @@ namespace FlockingSimulation
         {
             _spriteBatch.Begin();
             //Draw _raven
-            _spriteBatch.Draw(_texture, new Microsoft.Xna.Framework.Vector2(_raven.Position.Vx, _raven.Position.Vy), null, Color.White, _raven.Rotation, new Microsoft.Xna.Framework.Vector2(10, 10), 1, SpriteEffects.None, 0f);
+            _spriteBatch.Draw(_texture, new Microsoft.Xna.Framework.Vector2(_raven.Position.Vx, _raven.Position.Vy), null, Color.White, _raven.Rotation, new Microsoft.Xna.Framework.Vector2(_originRotation, _originRotation), 1, SpriteEffects.None, 0f);
             _spriteBatch.End();
 
             base.Draw(gameTime);

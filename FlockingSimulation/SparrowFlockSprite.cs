@@ -12,6 +12,7 @@ namespace FlockingSimulation
         private List<Sparrow> _sparrows;
         private Texture2D _texture;
         private SpriteBatch _spriteBatch;
+        private const int _originRotation = 10;
 
         //initialize _game
         public SparrowFlockSprite(Game1 game) : base(game)
@@ -50,7 +51,7 @@ namespace FlockingSimulation
             //Goes through the list and draw sparrows
             foreach (Sparrow sparrow in _sparrows)
             {
-                _spriteBatch.Draw(_texture, new Microsoft.Xna.Framework.Vector2(sparrow.Position.Vx, sparrow.Position.Vy), null, Color.White, sparrow.Rotation, new Microsoft.Xna.Framework.Vector2(10, 10), 1, SpriteEffects.None, 0f);
+                _spriteBatch.Draw(_texture, new Microsoft.Xna.Framework.Vector2(sparrow.Position.Vx, sparrow.Position.Vy), null, Color.White, sparrow.Rotation, new Microsoft.Xna.Framework.Vector2(_originRotation, _originRotation), 1, SpriteEffects.None, 0f);
             }
             _spriteBatch.End();
 
