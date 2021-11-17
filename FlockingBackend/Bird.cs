@@ -22,6 +22,11 @@ namespace FlockingBackend
         //AmountToSteer variable used to make the birds follow other birds
         protected Vector2 amountToSteer;
 
+        //Min and max value for the random placement of the bird
+        private const int maxRand = 5;
+
+        private const int minRand = -4;
+
         //Bird constructor that puts the bird in a random positon and gives it a random velocity.
         //Also sets amount to steer to 0
         public Bird()
@@ -30,8 +35,8 @@ namespace FlockingBackend
             int Px = rnd.Next(0, World.Width);
             int Py = rnd.Next(0, World.Height);
             Position = new Vector2(Px, Py);
-            int VelX = rnd.Next(0, 9) - 4;
-            int VelY = rnd.Next(0, 9) - 4;
+            int VelX = rnd.Next(minRand, maxRand);
+            int VelY = rnd.Next(minRand, maxRand);
             Velocity = new Vector2(VelX, VelY);
             amountToSteer = new Vector2(0, 0);
         }
@@ -53,7 +58,7 @@ namespace FlockingBackend
             }
         }
 
-         
+
         protected void AppearOnOppositeSide()
         {
             if (this.Position.Vx > World.Width)
