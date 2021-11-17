@@ -39,8 +39,8 @@ namespace FlockingUnitTests
         {
             Sparrow s = new Sparrow(30, 40, 1, 3);
             Vector2 result = s.Alignment(GetList(s));
-            Assert.AreEqual(Math.Round((2.2) / Math.Sqrt(5.2), 4), Math.Round(result.Vx, 4));
-            Assert.AreEqual(Math.Round((-0.6) / Math.Sqrt(5.2), 4), Math.Round(result.Vy, 4));
+            Assert.AreEqual(Math.Round((2.2) / Math.Sqrt(5.2), 4), Math.Round(result.Vx, 4), 0.01);
+            Assert.AreEqual(Math.Round((-0.6) / Math.Sqrt(5.2), 4), Math.Round(result.Vy, 4), 0.01);
         }
 
         [TestMethod]
@@ -48,8 +48,8 @@ namespace FlockingUnitTests
         {
             Sparrow s = new Sparrow(30, 40, 1, 3);
             Vector2 result = s.Alignment(GetListZeroVector());
-            Assert.AreEqual(0, result.Vx);
-            Assert.AreEqual(0, result.Vy);
+            Assert.AreEqual(0, result.Vx, 0.01);
+            Assert.AreEqual(0, result.Vy, 0.01);
         }
 
         [TestMethod]
@@ -57,8 +57,8 @@ namespace FlockingUnitTests
         {
             Sparrow s = new Sparrow(30, 40, 1, 3);
             Vector2 result = s.Cohesion(GetList(s));
-            Assert.AreEqual(Math.Round(-0.549009404, 4), Math.Round(result.Vx, 4));
-            Assert.AreEqual(Math.Round(-0.835816172, 4), Math.Round(result.Vy, 4));
+            Assert.AreEqual(Math.Round(-0.549009404, 4), Math.Round(result.Vx, 4), 0.01);
+            Assert.AreEqual(Math.Round(-0.835816172, 4), Math.Round(result.Vy, 4), 0.01);
         }
 
         [TestMethod]
@@ -66,8 +66,8 @@ namespace FlockingUnitTests
         {
             Sparrow s = new Sparrow(30, 40, 1, 3);
             Vector2 result = s.Cohesion(GetListZeroVector());
-            Assert.AreEqual(0, result.Vx);
-            Assert.AreEqual(0, result.Vy);
+            Assert.AreEqual(0, result.Vx, 0.01);
+            Assert.AreEqual(0, result.Vy, 0.01);
         }
 
         [TestMethod]
@@ -79,8 +79,8 @@ namespace FlockingUnitTests
             sparrows.Add(new Sparrow(70, 140, 2, 4));
             sparrows.Add(new Sparrow(60, 160, 2, 5));
             Vector2 result = s.Avoidance(sparrows);
-            Assert.AreEqual(Math.Round(0.995626235, 4), Math.Round(result.Vx, 4));
-            Assert.AreEqual(Math.Round(-0.093425903, 4), Math.Round(result.Vy, 4));
+            Assert.AreEqual(Math.Round(0.995626235, 4), Math.Round(result.Vx, 4), 0.01);
+            Assert.AreEqual(Math.Round(-0.093425903, 4), Math.Round(result.Vy, 4), 0.01);
         }
 
         [TestMethod]
@@ -88,8 +88,8 @@ namespace FlockingUnitTests
         {
             Sparrow s = new Sparrow(30, 40, 1, 3);
             Vector2 result = s.Avoidance(GetListZeroVector());
-            Assert.AreEqual(0, result.Vx);
-            Assert.AreEqual(0, result.Vy);
+            Assert.AreEqual(0, result.Vx, 0.01);
+            Assert.AreEqual(0, result.Vy, 0.01);
         }
 
         [TestMethod]
@@ -98,8 +98,8 @@ namespace FlockingUnitTests
             Sparrow s = new Sparrow(30, 40, 1, 3);
             Raven raven = new Raven(25, 35, 4, 3);
             Vector2 result = s.FleeRaven(raven);
-            Assert.AreEqual(Math.Round(2.828427125, 4), Math.Round(result.Vx, 4));
-            Assert.AreEqual(Math.Round(2.828427125, 4), Math.Round(result.Vy, 4));
+            Assert.AreEqual(Math.Round(2.828427125, 4), Math.Round(result.Vx, 4), 0.01);
+            Assert.AreEqual(Math.Round(2.828427125, 4), Math.Round(result.Vy, 4), 0.01);
         }
 
         [TestMethod]
@@ -108,8 +108,8 @@ namespace FlockingUnitTests
             Sparrow s = new Sparrow(30, 40, 1, 3);
             Raven raven = new Raven(60, 160, 2, 5);
             Vector2 result = s.FleeRaven(raven);
-            Assert.AreEqual(0, result.Vx);
-            Assert.AreEqual(0, result.Vy);
+            Assert.AreEqual(0, result.Vx, 0.01);
+            Assert.AreEqual(0, result.Vy, 0.01);
         }
 
         /// <summary>
